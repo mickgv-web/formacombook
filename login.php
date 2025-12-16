@@ -34,6 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 
 <h1 class="title">Iniciar sesión</h1>
+
+<?php if (isset($_GET['registro']) && $_GET['registro'] === 'ok'): ?>
+  <div class="notification is-success">
+    Registro completado. Ya puedes iniciar sesión.
+  </div>
+<?php endif; ?>
+
 <?php echo $mensaje; ?>
 
 <form method="post" class="box">

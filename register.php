@@ -17,7 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt->bind_param("sss", $nombre, $email, $hash);
 
         if ($stmt->execute()) {
-            $mensaje = '<div class="notification is-success">Registro completado. Ya puedes iniciar sesión.</div>';
+            // Redirigir al login con aviso de registro correcto
+            header("Location: login.php?registro=ok");
+            exit;
         } else {
             $mensaje = '<div class="notification is-danger">Error: el email ya existe.</div>';
         }
